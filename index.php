@@ -5,7 +5,7 @@
     <head>
     	
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>LAI CONTROL SYSTEM</title>
         <script language="javascript" src="js/jquery-1.2.6.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
    		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
