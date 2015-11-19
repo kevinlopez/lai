@@ -1,0 +1,59 @@
+td{
+		padding:2px;
+		
+	}
+	button{
+		color:white;
+		font-weight:bold;
+		background-color:red;
+		width:60px;
+		height:40px;
+		
+		
+	}
+	#btnActualizar {width:50px;background:#EEEEEE; border:solid 6px;border-color:gray;color:black;border-radius:12px; }
+	
+	#actionbutton{
+	height:18px; background:white;color:black;border:0px;
+		
+		
+		
+	}
+	
+
+
+
+
+	body {font-size:76%; font-family:"trebuchet MS", verdana, arial, sans-serif; word-wrap:break-word;}
+
+#header {background:#a31e39;}
+
+#outer1 {float:left; width:25%;}
+#outer2 {float:left; width:49%; }
+#outer3 {float:right; width:26%;}
+#outer1, #outer2, #outer3 {padding-bottom:32767px; margin-bottom:-32767px;}
+
+#wrapper {overflow:hidden;}
+
+
+#footer {clear:both;}
+
+h1 {font-size:20px; margin:0; padding:2px 0; color:#000000;}
+h3 {font-size:18px; margin:0; padding:8px 0;}
+.content {padding:0px;}
+p {font-size:12px; line-height:1.5em; margin:0; padding:5px 0;}
+#footer p,
+#header p {color:#fff;}
+#footer a {color:#fff;}
+#footer a:hover {text-decoration:none;}
+
+	
+	
+	@media all and (max-width: 1280px) {
+	#outer1{width:100%;}
+	#outer2 {margin-left:0px; width:100%; }
+	#outer2 table{font-size:7px; }
+#outer3 {margin-left:0px; width:100%; }
+	  
+		
+	}

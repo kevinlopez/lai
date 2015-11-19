@@ -1,0 +1,111 @@
+///////////////en el evento click button y ponerlo color verde - OCUPADO
+1º Jalar el nombre que esta en la caja de texto y darselo a una var $nom y recuperar su id mediante "SELECT id from alumno where paterno='$nom';"
+
+2º obtener el numero de pc como $numpc
+
+3ºDarle valor true a $estadopc
+
+4º insertar fecha y hora actual (current timestamp) PERO de esta forma porque el servidor tiene 5 horas adelantadas a PERU.  
+insert into fechaentrada values(adddate(now(),interval -5 hour));
+
+////////////en el evento click button y ponerlo color rojo - NO OCUPADO
+1º Obtener el numero de pc clickeado y a ese mismo "numero" en la BD insertar el campo que habia quedado null "fechasalida", SOLO ESE CAMPO faltaria por llenar.
+
+//sentencia para insertar en REGISTRO
+INSERT INTO `registro`(`paterno_alumno`, `numero_computadora`, `fechaentrada`) VALUES ('AGUILAR NECIOSUP JOIS SAMANTA',11,adddate(now(),interval -5 hour))
+//sentencia para insertar la salida
+UPDATE `registro` SET `fechasalida`=adddate(now(),interval -5 hour) WHERE id=1
+
+http://www.anerbarrena.com/jquery-val-4648/
+http://www.anerbarrena.com/demos/2014/020-ejemplo-jquery-val-01.php
+PARA CONCATENAR SELECTORES $('#button' + num).mouseout(function () {
+
+//PARA DARLE UN FORMATO PARECIDO AL EXCEL
+SET @i=0;
+SELECT @i:=@i+1 as N, `numero_computadora` AS PC,`paterno_alumno` AS NOMBRE, TIMEDIFF( fechasalida, fechaentrada ) AS USO, `fechaentrada` AS ENTRADA, `fechasalida` AS SALIDA FROM `registro`;
+
+------------------------------------------------------------------
+LUEGO DE 4 DIAS DE PRUEBA EL SISTEMA FUNCIONA BIEN, PERO ES DEFICIENTE VISUALMENTE, 
+1 NO MUESTRA QUIENES ESTAN EN CADA PC, HAY QUE IRA "HISTORIAL" PARA PODER VER. 
+2 NO LLEVA AL FOCO LUEGO DE CLICKEAR PARA OCUPAR UNA PC
+3 NO TIENE SONIDOS DE ANIMACION PARA OCUPAR Y DESOCUPAR UNA PC, RECOMENDADO SONIDO DE MESSENGER
+4 DEBE TENER UNA INTERFAZ MAS PROFESIONAL Y QUE AYUDE A UBICAR EL NUMERO DE UNA PC MAS RAPIDO.
+
+PARA MOSTRAR REPORTE DE UN DIAS
+SELECT `numero_computadora`,`paterno_alumno`, TIMEDIFF( fechasalida, fechaentrada ) AS uso, `fechaentrada`, `fechasalida` 
+FROM `registro`
+WHERE DATE(fechaentrada)='2015-10-15'
+order by fechaentrada ASC
+---------------------------------
+PARA CAMBIAR FORMATO DE FECHA
+Use the default date function.
+
+$var = "20/04/2012";
+echo date("Y-m-d", strtotime($var) );
+EDIT I just tested it, and somehow, PHP doesn't work well with dd/mm/yyyy format. Here's another solution.
+
+$var = '20/04/2012';
+$date = str_replace('/', '-', $var);
+echo date('Y-m-d', strtotime($date));
+-------------------------------------
+para capturar datos de un archivo html
+http://www.forosdelweb.com/f18/sacar-informacion-fichero-html-710560/
+
+dir /b > milistado.txt
+
+-----------------------codigo java-------------------------
+
+package javaapplication1;
+import java.io.*;
+import java.util.*;
+public class hola2 {
+    public static void main (String args[] ) {
+        
+        ArrayList arrayListado1 = null;
+        ArrayList arrayListado2 = null;
+        File f1 = null;
+        File f2 = null;
+        FileReader fr1 =null;
+        BufferedReader br1 = null;
+        FileReader fr2 =null;
+        BufferedReader br2 = null;
+        try {
+        f1 = new File ("C:/topicos/fotos/listado1.txt");
+        f2 = new File ("C:/topicos/fotos/listado2.txt");
+        
+        fr1 = new FileReader (f1);
+        br1 = new BufferedReader (fr1);
+        arrayListado1 = new ArrayList ();
+        String linea1;
+        
+        fr2 = new FileReader (f2);
+        br2 = new BufferedReader (fr2);
+        arrayListado2 = new ArrayList ();
+        String linea2;
+        
+        int contador=0;
+        while ( (linea1 = br1.readLine()) != null ) {
+            //arrayCuenta.add(linea);
+            //System.out.println(arrayCuenta.get(contador));
+            linea2 = br2.readLine();
+             File archivo=new File("C:/topicos/fotos//"+linea2);//archivo que existe
+             linea2 = linea2.substring(0, 3) + "_" + linea1+linea2.substring(13, linea1.length());
+archivo.renameTo(new File("C:/topicos/fotos//"+linea2));
+            contador++;
+        }
+        }
+        catch (FileNotFoundException fnfe) {System.out.println("error1"); } catch (IOException ioe) {System.out.println("error2");}
+        finally {
+            try{
+                if (fr1 != null)
+            fr1.close();}
+            catch (IOException ioe) {System.out.println("error3");}
+           
+        }
+    }
+}
+--------------------fin codigo java---------------------------------------------
+
+CODIGO  PARA PONER FOTO EN EL CENTRO DE LA TABLA DE PCS
+	<td  colspan="4" rowspan="3"><img style="width:145px;height:174px;" src=<?php echo '"http://biblioteca.uns.edu.pe/lais/imdlpadlu/0420201514039.jpg"'?>></img></td>
+	 <tr><td style="background-color:black;color:white;">Servidor</td><td style="background-color:black;color:white;">Entrada</td></tr>
