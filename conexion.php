@@ -1,4 +1,4 @@
 <?php
-    $conexion = new mysqli('localhost','kevinlopez','','matriculaautocompletar',3306);
+    $conexion = new mysqli('OPENSHIFT_MYSQL_DB_HOST','admin5kmctQs','nHGaBf1j5yTS','lai',3306);
 		
 			?>
